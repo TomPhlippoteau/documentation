@@ -7,7 +7,7 @@ https://www.linuxtricks.fr/wiki/dnsmasq-le-serveur-dns-et-dhcp-facile-sous-linux
 ## Install
 
 Dnsmak allows a domain and all subdomain to an IP.  
-If my case, all `*.web.local` will point to the raspberry-pi server, thus allowing me to not edit the `hosts` file on each device of the local network.  
+If my case, all `*.lan` will point to the raspberry-pi server, thus allowing me to not edit the `hosts` file on each device of the local network.  
 
 let's install dnsMask  
 `sudo apt install dnsmasq`  
@@ -15,9 +15,9 @@ let's install dnsMask
 Update `/etc/dnsmasq.conf` file  
 Find the line address and listen address, uncomment and update   
 ```
-address=/web.local/192.168.0.26  
+address=/.lan/192.168.0.26  
 listen-address=192.168.0.26
-resolv-file=/etc/dnsmasq-resolv.conf
+# resolv-file=/etc/dnsmasq-resolv.conf
 ```  
 
 I created a dnsmasq-resolv.conf file with :
@@ -40,4 +40,4 @@ Flush the dns : `ipconfig /flushdns`
 ## Troubleshooting
 
 You can try to ping the raspberry from a different device vie the ip or domain (web.local)   
-You can also test a `nslookup web.local`
+You can also test a `nslookup games.lan`
