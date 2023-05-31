@@ -80,7 +80,7 @@ WORKDIR /var/www
 ```
 
 let's create the nginx.conf for one of the subdomain.  
-each subdomain will need to follow the same naming rules `nginx/games.web.local.conf` and should look like this :
+each subdomain will need to follow the same naming rules `nginx/games.lan.conf` and should look like this :
 
 ```bash
 
@@ -94,7 +94,7 @@ server {
     index index.php index.html index.htm;
 
     ## Make site accessible from http://localhost
-    server_name games.web.local;
+    server_name games.lan;
 
     # Disable sendfile as per https://docs.vagrantup.com/v2/synced-folders/virtualbox.html
     sendfile off;
